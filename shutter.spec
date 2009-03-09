@@ -7,7 +7,7 @@ Version:	0.64
 Release:	%{mdv_release}
 License:	GPLV3
 Group:		Development/Perl
-URL:		https://launchpad.net/gscrot
+URL:		http://shutter-project.org/
 Source0:	https://launchpad.net/%7Egscrot-testing-team/+archive/+files/%{name}_%{version}~%{extraver}.orig.tar.gz
 BuildArch:	noarch
 Obsoletes:	gscrot <= 0.64-0.ppa10.2mdv2009.1
