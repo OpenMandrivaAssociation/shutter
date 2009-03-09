@@ -11,7 +11,13 @@ URL:		http://shutter-project.org/
 Source0:	https://launchpad.net/%7Egscrot-testing-team/+archive/+files/%{name}_%{version}~%{extraver}.orig.tar.gz
 BuildArch:	noarch
 Obsoletes:	gscrot <= 0.64-0.ppa10.2mdv2009.1
-Requires:       perl-Gnome2-Wnck perl-Goo-Canvas perl-X11-Protocol libgoocanvas3 perl-Gnome2-Canvas perl-Gnome2-GConf perl-WWW-Mechanize
+Requires:	libgoocanvas3
+Requires:	perl-Goo-Canvas
+Requires:	perl-Gnome2-Canvas
+Requires:	perl-Gnome2-GConf
+Requires:	perl-Gnome2-Wnck
+Requires:	perl-WWW-Mechanize
+Requires:	perl-X11-Protocol
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
