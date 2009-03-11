@@ -1,17 +1,17 @@
 %define extraver ppa11
-%define mdv_release %mkrel 0.%{extraver}.1
+%define mdv_release %mkrel 0.%{extraver}.2
 
 Summary:	Feature-rich screenshot application
 Name:		shutter
 Version:	0.70
 Release:	%{mdv_release}
-License:	GPLV3
+License:	GPLv3
 Group:		Development/Perl
 URL:		http://shutter-project.org/
 Source:		http://shutter-project.org/wp-content/uploads/releases/tars/shutter_%{version}~%{extraver}.orig.tar.gz
 BuildArch:	noarch
 Obsoletes:	gscrot <= 0.64-0.ppa10.2mdv2009.1
-Requires:	libgoocanvas3
+Requires:	libgoocanvas
 Requires:	perl-Goo-Canvas
 Requires:	perl-Gnome2-Canvas
 Requires:	perl-Gnome2-GConf
