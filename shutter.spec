@@ -1,5 +1,5 @@
 %define extraver ppa2
-%define mdv_release %mkrel 0.%{extraver}.1
+%define mdv_release %mkrel 0.%{extraver}.2
 
 Summary:	Feature-rich screenshot application
 Name:		shutter
@@ -16,6 +16,7 @@ Requires:	perl-Gnome2-GConf
 Requires:	perl-Gnome2-Wnck
 Requires:	perl-WWW-Mechanize
 Requires:	perl-X11-Protocol
+Suggests:	gnome-web-photo
 Suggests:	perl-Goo-Canvas
 Suggests:	perl-Gtk2-ImageView
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
