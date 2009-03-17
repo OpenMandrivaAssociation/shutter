@@ -34,8 +34,8 @@ hosting site, all within one window.
 rm -rf share/shutter/resources/modules/{File,Proc}
 
 # remove unwanted files
-rm -f app-install/desktop/shutter.desktop
-rm -f app-install/icons/shutter.svg
+rm -f share/app-install/desktop/shutter.desktop
+rm -f share/app-install/icons/shutter.svg
 
 %build
 
