@@ -1,5 +1,5 @@
 %define extraver ppa2
-%define mdv_release %mkrel 0.%{extraver}.2
+%define mdv_release %mkrel 0.%{extraver}.3
 
 Summary:	Feature-rich screenshot application
 Name:		shutter
@@ -30,6 +30,13 @@ hosting site, all within one window.
 %prep
 %setup -q -n %{name}-%{version}.orig
 
+# remove own copy of perl-* modules provided by other packages
+rm -rf share/shutter/resources/modules/{File,Proc}
+
+# remove unwanted files
+rm -f app-install/desktop/shutter.desktop
+rm -f app-install/icons/shutter.svg
+
 %build
 
 %check
@@ -43,10 +50,6 @@ mv share %{buildroot}/usr
 %find_lang %{name}
 %find_lang %{name}-plugins
 cat %{name}-plugins.lang >> %{name}.lang
-
-# remove unwanted files
-rm -f %{buildroot}%{_datadir}/app-install/desktop/shutter.desktop
-rm -f %{buildroot}%{_datadir}/app-install/icons/shutter.svg
 
 %clean 
 rm -rf %{buildroot}
