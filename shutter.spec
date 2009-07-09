@@ -1,14 +1,11 @@
-%define extraver ppa2
-%define mdv_release %mkrel 0.%{extraver}.3
-
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.70.1
-Release:	%{mdv_release}
+Version:	0.80
+Release:	%mkrel 1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
-Source:		http://shutter-project.org/wp-content/uploads/releases/tars/shutter_%{version}~%{extraver}.orig.tar.gz
+Source:		http://shutter-project.org/wp-content/uploads/releases/tars/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 Obsoletes:	gscrot <= 0.64-0.ppa10.2mdv2009.1
 Requires:	perl-Gnome2-Canvas
@@ -28,7 +25,7 @@ effects to it, draw on it to highlight points, and then upload to an image
 hosting site, all within one window.
 
 %prep
-%setup -q -n %{name}-%{version}.orig
+%setup -q -n %{name}-%{version}
 
 # remove own copy of perl-* modules provided by other packages
 rm -rf share/shutter/resources/modules/{File,Proc}
@@ -56,10 +53,11 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc tools/gen_translation.pl tools/gen_translation_plugins.pl
-%doc tools/to_translate tools/to_translate_bash
 %attr(755,root,root) %{_bindir}/shutter
 %{_datadir}/shutter/*
 %{_datadir}/applications/shutter.desktop
 %{_datadir}/pixmaps/shutter.svg
 %{_mandir}/man1/*
+%exclude %{_docdir}/%{name}/COPYING
+%doc README
+
