@@ -1,7 +1,7 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
 Version:	0.80.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
@@ -16,6 +16,7 @@ Requires:	perl-X11-Protocol
 Suggests:	gnome-web-photo
 Suggests:	perl-Goo-Canvas
 Suggests:	perl-Gtk2-ImageView
+Suggests:	perl-Image-Magick
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
