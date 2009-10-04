@@ -1,12 +1,13 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
 Version:	0.80.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
 Source:		http://shutter-project.org/wp-content/uploads/releases/tars/%{name}-%{version}.tar.gz
 BuildArch:	noarch
+BuildRequires:	gettext
 Obsoletes:	gscrot <= 0.64-0.ppa10.2mdv2009.1
 Requires:	perl-Gnome2-Canvas
 Requires:	perl-Gnome2-GConf
@@ -36,6 +37,17 @@ rm -f share/app-install/desktop/shutter.desktop
 rm -f share/app-install/icons/shutter.svg
 
 %build
+# the shipped .mo files aren't uptodate...
+for tb in share/shutter/resources/po/*.tar.gz; do
+	pname=`basename $tb .tar.gz`
+	tar -zxf $tb -C share/shutter/resources/po
+	for po in share/shutter/resources/po/$pname/*.po; do
+		lang=`basename $po .po`
+		rm -f share/locale/$lang/LC_MESSAGES/$pname.mo
+		msgfmt $po -o share/locale/$lang/LC_MESSAGES/$pname.mo
+	done
+done
+rm -rf share/shutter/resources/po
 
 %check
 
