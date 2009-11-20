@@ -1,7 +1,7 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.80.1
-Release:	%mkrel 3
+Version:	0.85
+Release:	%mkrel 1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
@@ -43,7 +43,12 @@ for tb in share/shutter/resources/po/*.tar.gz; do
 	tar -zxf $tb -C share/shutter/resources/po
 	for po in share/shutter/resources/po/$pname/*.po; do
 		lang=`basename $po .po`
-		rm -f share/locale/$lang/LC_MESSAGES/$pname.mo
+		if [ -d share/locale/$lang/LC_MESSAGES ]
+		then
+			rm -f share/locale/$lang/LC_MESSAGES/$pname.mo
+		else
+			mkdir -p share/locale/$lang/LC_MESSAGES/
+		fi
 		msgfmt $po -o share/locale/$lang/LC_MESSAGES/$pname.mo
 	done
 done
