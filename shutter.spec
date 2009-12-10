@@ -1,6 +1,6 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.85
+Version:	0.85.1
 Release:	%mkrel 1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
@@ -74,8 +74,10 @@ rm -rf %{buildroot}
 %attr(755,root,root) %{_bindir}/shutter
 %{_datadir}/shutter/*
 %{_datadir}/applications/shutter.desktop
-%{_datadir}/pixmaps/shutter.svg
 %{_mandir}/man1/*
+%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/pixmaps/%{name}.png
 %exclude %{_docdir}/%{name}/COPYING
 %doc README
 
