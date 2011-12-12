@@ -1,7 +1,7 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.87.3
-Release:	%mkrel 1
+Version:	0.88.1
+Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
@@ -18,7 +18,6 @@ Suggests:	gnome-web-photo
 Suggests:	perl-Goo-Canvas
 Suggests:	perl-Gtk2-ImageView
 Suggests:	perl-Image-Magick
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Shutter is a feature-rich screenshot program. You can take a screenshot of a
@@ -35,39 +34,21 @@ rm -rf share/shutter/resources/modules/{File,Proc}
 # remove unwanted files
 rm -f share/app-install/desktop/shutter.desktop
 rm -f share/app-install/icons/shutter.svg
+rm -f %{buildroot}/%{_docdir}/%{name}/COPYING
 
 %build
-# the shipped .mo files aren't uptodate...
-for tb in share/shutter/resources/po/*.tar.gz; do
-	pname=`basename $tb .tar.gz`
-	tar -zxf $tb -C share/shutter/resources/po
-	for po in share/shutter/resources/po/$pname/*.po; do
-		lang=`basename $po .po`
-		if [ -d share/locale/$lang/LC_MESSAGES ]
-		then
-			rm -f share/locale/$lang/LC_MESSAGES/$pname.mo
-		else
-			mkdir -p share/locale/$lang/LC_MESSAGES/
-		fi
-		msgfmt $po -o share/locale/$lang/LC_MESSAGES/$pname.mo
-	done
-done
-rm -rf share/shutter/resources/po
-
 %check
 
 %install
-rm -rf %{buildroot}
 install -d -m 0755 %{buildroot}
 install -d -m 0755 %{buildroot}/usr
 mv bin %{buildroot}/usr
 mv share %{buildroot}/usr
 %find_lang %{name}
+%find_lang %{name}-upload-plugins
 %find_lang %{name}-plugins
+cat %{name}-upload-plugins.lang >> %{name}.lang
 cat %{name}-plugins.lang >> %{name}.lang
-
-%clean 
-rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
@@ -75,9 +56,12 @@ rm -rf %{buildroot}
 %{_datadir}/shutter/*
 %{_datadir}/applications/shutter.desktop
 %{_mandir}/man1/*
-%{_iconsdir}/hicolor/*/apps/%{name}.png
-%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+#%{_datadir}/locale/
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/scalable/apps/*.svg
+%{_iconsdir}/ubuntu-mono-light/scalable/apps/
+%{_iconsdir}/ubuntu-mono-dark/scalable/apps/
+%{_iconsdir}/ubuntu-mono-light/*/apps/*.png
+%{_iconsdir}/ubuntu-mono-dark/*/apps/*.png
 %{_datadir}/pixmaps/%{name}.png
-%exclude %{_docdir}/%{name}/COPYING
 %doc README
-
