@@ -1,15 +1,14 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.88.2
+Version:	0.88.3
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
-Source:		http://shutter-project.org/wp-content/uploads/releases/tars/%{name}-%{version}.tar.gz
+Source0:	http://shutter-project.org/wp-content/uploads/releases/tars/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	gettext
 %rename gscrot
-#Suggests:	perl-Image-Magick
 
 %description
 Shutter is a feature-rich screenshot program. You can take a screenshot of a
