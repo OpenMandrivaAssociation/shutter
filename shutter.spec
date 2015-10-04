@@ -1,7 +1,7 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.89.1
-Release:	2
+Version:	0.93.1
+Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		http://shutter-project.org/
@@ -39,6 +39,7 @@ cat %{name}-plugins.lang >> %{name}.lang
 %{_datadir}/applications/shutter.desktop
 %{_mandir}/man1/*
 %{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/HighContrast/*/apps/*
 %{_iconsdir}/hicolor/scalable/apps/*.svg
 %{_iconsdir}/ubuntu-mono-light/scalable/apps/
 %{_iconsdir}/ubuntu-mono-dark/scalable/apps/
