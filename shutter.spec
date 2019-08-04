@@ -4,8 +4,8 @@ Version:	0.94.3
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
-URL:		http://shutter-project.org/
-Source0:	http://shutter-project.org/wp-content/uploads/releases/tars/%{name}-%{version}.tar.gz
+URL:		https://launchpad.net/shutter
+Source0:	https://launchpad.net/shutter/0.9x/%{version}/+download/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	gettext
 %rename gscrot
@@ -46,7 +46,8 @@ cat %{name}-plugins.lang >> %{name}.lang
 %{_iconsdir}/ubuntu-mono-light/*/apps/*.png
 %{_iconsdir}/ubuntu-mono-dark/*/apps/*.png
 %{_datadir}/pixmaps/%{name}.png
-%doc README
+%{_datadir}/appdata/shutter.appdata.xml
+%doc README COPYING
 
 
 %changelog
