@@ -1,6 +1,6 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.93.1
+Version:	0.94.3
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
