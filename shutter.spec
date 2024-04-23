@@ -27,13 +27,14 @@ install -d -m 0755 %{buildroot}
 install -d -m 0755 %{buildroot}/%{_prefix}
 cp -a bin %{buildroot}/%{_prefix}
 cp -a share %{buildroot}/%{_prefix}
-%find_lang %{name}
+#find_lang %{name}
 %find_lang %{name}-upload-plugins
 %find_lang %{name}-plugins
 cat %{name}-upload-plugins.lang >> %{name}.lang
 cat %{name}-plugins.lang >> %{name}.lang
 
-%files -f %{name}.lang
+%files 
+#-f %{name}.lang
 %defattr(-,root,root)
 %attr(755,root,root) %{_bindir}/shutter
 %{_datadir}/shutter/*
