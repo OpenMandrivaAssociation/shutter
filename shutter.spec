@@ -1,11 +1,12 @@
 Summary:	Feature-rich screenshot application
 Name:		shutter
-Version:	0.94.3
+Version:	0.99.5
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 URL:		https://launchpad.net/shutter
-Source0:	https://launchpad.net/shutter/0.9x/%{version}/+download/%{name}-%{version}.tar.gz
+#Source0:	https://launchpad.net/shutter/0.9x/%{version}/+download/%{name}-%{version}.tar.gz
+Source0:  https://github.com/shutter-project/shutter/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	gettext
 %rename gscrot
